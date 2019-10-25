@@ -21,3 +21,6 @@
 
 <!-- PAGE SCRIPTS -->
 <script src="{{ asset('js/pages/dashboard2.js') }}"></script>
+
+<script src="{{ asset('node_modules/datatables.net/js/jquery.dataTables.min.js') }}"></script>
+<script src="{{ asset('node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>

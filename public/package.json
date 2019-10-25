@@ -12,6 +12,7 @@
     "@fortawesome/fontawesome-free": "^5.11.2",
     "bootstrap": "^4.3.1",
     "chart.js": "^2.8.0",
+    "datatables.net-bs4": "^1.10.20",
     "jquery": "^3.4.1",
     "jquery-mapael": "^2.2.0",
     "jquery-mousewheel": "^3.1.13",

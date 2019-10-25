@@ -39,6 +39,7 @@
         </section>
         @include('partials.footer')
     </div>
+</div>
 @include('partials.script')
 @yield('script')
 </body>

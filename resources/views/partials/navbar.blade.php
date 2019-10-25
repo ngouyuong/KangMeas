@@ -119,4 +119,28 @@
                     class="fas fa-th-large"></i></a>
         </li>
     </ul>
+
+    <ul class="navbar-nav">
+        <li class="nav-item dropdown">
+            <a id="navbarDropdown" class="dropdown-toggle" href="#" role="button" data-toggle="dropdown"
+               aria-haspopup="true" aria-expanded="false" v-pre>
+                {{ Auth::user()->name }} <span class="caret"></span>
+                <img src="{{ asset('img/user1-128x128.jpg') }}" alt="avatar" width="30px"
+                     class="brand-image img-circle elevation-3"
+                     style="opacity: .8">
+            </a>
+
+            <div class="dropdown-menu dropdown-menu-right" aria-labelledby="navbarDropdown">
+                <a class="dropdown-item" href="{{ route('logout') }}"
+                   onclick="event.preventDefault();
+                                                     document.getElementById('logout-form').submit();">
+                    {{ __('Logout') }}
+                </a>
+
+                <form id="logout-form" action="{{ route('logout') }}" method="POST" style="display: none;">
+                    @csrf
+                </form>
+            </div>
+        </li>
+    </ul>
 </nav>

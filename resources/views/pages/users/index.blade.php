@@ -1,5 +1,4 @@
 @extends('layouts.master')
-
 @section('title','Dashboard')
 
 @section('content')
@@ -30,7 +29,15 @@
                                     <td>{{ $user->created_at }}</td>
                                     <td>{{ $user->updated_at }}</td>
                                     <td>
-                                        <button type="button" class="btn btn-block btn-danger btn-sm">delete</button>
+                                        <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary" >
+                                            <i class="far fa-eye"></i>
+                                        </a>
+                                        <a href='{{ route('users.edit', $user->id) }}' class="btn btn-sm btn-primary" >
+                                            <i class="far fa-edit"></i>
+                                        </a>
+                                        <a href="#" class="btn btn-sm btn-danger">
+                                            <i class="fas fa-trash-alt"></i>
+                                        </a>
                                     </td>
                                 </tr>
                             @endforeach
@@ -54,6 +61,7 @@
         </div>
         <!-- /.row -->
     </section>
+
 @endsection
 
 @section('script')
