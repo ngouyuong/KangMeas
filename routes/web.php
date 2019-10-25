@@ -31,4 +31,6 @@ Route::group(['middleware' => 'auth'], function () {
     });
 });
 
+Route::get('testing', 'TestinController@testing');
+
 
