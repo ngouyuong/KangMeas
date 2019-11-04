@@ -7,24 +7,23 @@
             <div class="col-12">
                 <div class="card">
                     <div class="card-header">
-                        <div class="row">
-                            <div class="">
-                                @can('create')
-                                    <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary">
-                                        <i class="nav-icon fas fa-user-plus"></i>
-                                        Add User
-                                    </a>
-                                @endcan
-                            </div>
+                        <div class="float-left">
+                            <h3 class="m-0 text-dark">
+                                Users
+                            </h3>
+                        </div>
+                        <div class="float-right">
+                            @can('create')
+                                <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary">
+                                    <i class="nav-icon fas fa-user-plus"></i>
+                                    Add User
+                                </a>
+                            @endcan
                         </div>
                     </div>
                     <!-- /.card-header -->
 
                     <div class="card-body">
-                        <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary" >
-                            <i class="nav-icon fas fa-user-plus"></i>
-                                Add User
-                        </a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -43,13 +42,6 @@
                                     <td>{{ $user['created_at'] }}</td>
                                     <td>{{ $user['updated_at'] }}</td>
                                     <td>
-                                        {{--                                        <a href="{{ route('test', [$user['id'], $user['name'],$user['email']]) }}">--}}
-                                        {{--                                            <i class="fas fa-edit"></i>--}}
-                                        {{--                                        </a>--}}
-
-                                        {{--                                        <a href='{{ route('users.update', $user['id']) }}' class="btn btn-sm btn-primary">--}}
-                                        {{--                                            <i class="far fa-edit"></i>--}}
-                                        {{--                                        </a>--}}
                                         <form action="{{ route('users.delete', $user['id']) }}" method="POST"
                                               onsubmit="return confirm('Are you sure?');">
                                             @method('DELETE')
@@ -95,11 +87,11 @@
 @section('script')
     <script>
         $(function () {
-            $("#example1").DataTable();
-            $('#example2').DataTable({
+            $("#example1").DataTable({
                 "paging": true,
-                "lengthChange": false,
-                "searching": false,
+                "lengthMenu": [25, 50, 75, 100],
+                "lengthChange": true,
+                "searching": true,
                 "ordering": true,
                 "info": true,
                 "autoWidth": false,
