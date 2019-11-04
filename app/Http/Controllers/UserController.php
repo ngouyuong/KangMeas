@@ -32,7 +32,7 @@ class UserController extends Controller
         $user = User::find($id);
         return view('pages.users.edit', compact('user'));
     }
-    public function update()
+    public function update(Request $request, $id)
     {
 
     }
