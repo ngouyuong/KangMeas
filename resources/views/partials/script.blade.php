@@ -24,3 +24,9 @@
 
 <script src="{{ asset('node_modules/datatables.net/js/jquery.dataTables.min.js') }}"></script>
 <script src="{{ asset('node_modules/datatables.net-bs4/js/dataTables.bootstrap4.min.js') }}"></script>
+
+<!-- Latest compiled and minified JavaScript -->
+<script src="{{ asset('node_modules/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
+
+<!-- (Optional) Latest compiled and minified JavaScript translation files -->
+<script src="{{asset('node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js')}}"></script>
