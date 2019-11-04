@@ -13,8 +13,8 @@ class ParentController extends Controller
     protected $service;
     protected $model;
 
-   public function testing()
-   {
-       return $this->service->test();
-   }
+    public function all()
+    {
+        return $this->service->getList();
+    }
 }

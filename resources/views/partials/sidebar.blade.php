@@ -45,30 +45,42 @@
                         </li>
                     </ul>
                 </li>
-                <li class="nav-header">Users Management
-                <li class="nav-item">
-                    <a href='#' class="nav-link">
-                        <i class="nav-icon fas fa-user-tag"></i>
+
+                <li class="nav-item has-treeview @if(request()->is('users') || request()->is('users/roles')) menu-open @else menu-close @endif">
+                    <a href="#" class="nav-link">
+                        <i class="nav-icon fas fa-users-cog"></i>
                         <p>
-                            Roles
+                            User Management
+                            <i class="right fas fa-angle-left"></i>
                         </p>
                     </a>
-                </li>
-                <li class="nav-item">
-                    <a href='#' class="nav-link">
-                        <i class="nav-icon far fa-user"></i>
-                        <p>
-                            Permissions
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href='{{ route('users') }}' class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
-                        <i class="nav-icon fas fa-users"></i>
-                        <p>
-                            Users
-                        </p>
-                    </a>
+                    <ul class="nav nav-treeview">
+                        <li class="nav-item">
+                            <a href='{{ route('users') }}'
+                               class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
+                                <i class="nav-icon fas fa-users"></i>
+                                <p>
+                                    Users
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href='#' class="nav-link">
+                                <i class="nav-icon fas fa-user-tag"></i>
+                                <p>
+                                    Roles
+                                </p>
+                            </a>
+                        </li>
+                        <li class="nav-item">
+                            <a href='#' class="nav-link">
+                                <i class="nav-icon far fa-user"></i>
+                                <p>
+                                    Permissions
+                                </p>
+                            </a>
+                        </li>
+                    </ul>
                 </li>
             </ul>
         </nav>

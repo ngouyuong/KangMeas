@@ -12,8 +12,8 @@ class BaseService
 {
     protected $model;
 
-    public function testing()
+    public function getList()
     {
-        return 'Hello BaseService';
+        return $this->model->all()->toArray();
     }
 }
