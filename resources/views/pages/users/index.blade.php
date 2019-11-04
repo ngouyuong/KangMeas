@@ -19,7 +19,12 @@
                         </div>
                     </div>
                     <!-- /.card-header -->
+
                     <div class="card-body">
+                        <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary" >
+                            <i class="nav-icon fas fa-user-plus"></i>
+                                Add User
+                        </a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
