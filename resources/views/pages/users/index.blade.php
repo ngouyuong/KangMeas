@@ -10,7 +10,12 @@
                         <h3 class="card-title">DataTable with default features</h3>
                     </div>
                     <!-- /.card-header -->
+
                     <div class="card-body">
+                        <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary" >
+                            <i class="nav-icon fas fa-user-plus"></i>
+                                Add User
+                        </a>
                         <table id="example1" class="table table-bordered table-striped">
                             <thead>
                             <tr>
@@ -30,7 +35,7 @@
                                     <td>{{ $user->updated_at }}</td>
                                     <td>
                                         <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary" >
-                                            <i class="far fa-eye"></i>
+                                            <i class="fas fa-user-eye"></i>
                                         </a>
                                         <a href='{{ route('users.edit', $user->id) }}' class="btn btn-sm btn-primary" >
                                             <i class="far fa-edit"></i>
