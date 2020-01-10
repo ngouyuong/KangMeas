@@ -9,16 +9,16 @@
                     <div class="card-header">
                         <div class="float-left">
                             <h3 class="m-0 text-dark">
-                                Users
+                                Roles
                             </h3>
                         </div>
                         <div class="float-right">
-                            @can('create')
-                                <a href='{{ route('users.create') }}' class="btn btn-sm btn-primary">
-                                    <i class="nav-icon fas fa-user-plus"></i>
-                                    Add User
-                                </a>
-                            @endcan
+
+                            <a href='{{ route('roles.create') }}' class="btn btn-sm btn-primary">
+                                <i class="nav-icon fas fas fa-user-tag"></i>
+                                Add New Role
+                            </a>
+
                         </div>
                     </div>
                     <!-- /.card-header -->
@@ -28,40 +28,39 @@
                             <thead>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>Guard_name</th>
+                                <th>Permission</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                <th>Action</th>
+                                <th>Actions</th>
+
+
                             </tr>
                             </thead>
                             <tbody>
-                            @foreach($users as $user)
+                            @foreach($roles as $role)
                                 <tr>
-                                    <td>{{ $user['name'] }}</td>
-                                    <td>{{ $user['email'] }}</td>
+                                    <td>{{ $role['name'] }}</td>
+                                    <td>{{ $role['guard_name'] }}</td>
                                     <td>
-                                        @foreach($user['roles'] as $role)
-                                            <span class="badge badge-pill badge-success">{{ $role->name }}</span>
+                                        @foreach($role['permissions'] as $permission)
+                                            <span class="badge badge-pill badge-success">{{ $permission->name }}</span>
                                         @endforeach
                                     </td>
-                                    <td>{{ $user['created_at'] }}</td>
-                                    <td>{{ $user['updated_at'] }}</td>
+                                    <td>{{ $role['created_at'] }}</td>
+                                    <td>{{ $role['updated_at'] }}</td>
                                     <td>
-                                        <form action="{{ route('users.delete', $user['id']) }}" method="POST"
+                                        <form action="{{ route('roles.delete', $role['id']) }}" method="POST"
                                               onsubmit="return confirm('Are you sure?');">
                                             @method('DELETE')
                                             @csrf
-                                            @can('edit')
-                                                <a href='{{ route('users.edit', $user['id']) }}' class="btn btn-sm btn-primary">
-                                                    <i class="fas fa-edit"></i>
-                                                </a>
-                                            @endcan
-                                            @can('delete')
-                                                <button type="submit" class="btn btn-sm btn-danger delete_user">
-                                                    <i class="fas fa-trash-alt"></i>
-                                                </button>
-                                            @endcan
+                                            <a href='{{ route('roles.edit', $role['id']) }}'
+                                               class="btn btn-sm btn-primary">
+                                                <i class="fas fa-edit"></i>
+                                            </a>
+                                            <button type="submit" class="btn btn-sm btn-danger delete_user">
+                                                <i class="fas fa-trash-alt"></i>
+                                            </button>
                                         </form>
                                     </td>
                                 </tr>
@@ -70,11 +69,11 @@
                             <tfoot>
                             <tr>
                                 <th>Name</th>
-                                <th>Email</th>
-                                <th>Role</th>
+                                <th>Guard_name</th>
+                                <th>Permission</th>
                                 <th>Created At</th>
                                 <th>Updated At</th>
-                                <th>Action</th>
+                                <th>Actions</th>
                             </tr>
                             </tfoot>
                         </table>
@@ -91,6 +90,7 @@
 @endsection
 
 @section('script')
+
     <script>
         $(function () {
             $("#example1").DataTable({
@@ -105,3 +105,4 @@
         });
     </script>
 @endsection
+

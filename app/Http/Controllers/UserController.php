@@ -19,7 +19,9 @@ class UserController extends ParentController
 
     public function index()
     {
-        $users = parent::all();
+        //$users = parent::get();
+        $users =  User::with('roles')->get();
+
         return view('pages.users.index', compact('users'));
     }
 
@@ -31,14 +33,16 @@ class UserController extends ParentController
 
     public function store(Request $request)
     {
-
+        $roles = Role::whereIn('id', $request->roles)->get();
 //        $this->validate($request, [
 //            'name' => ['required', 'string', 'max:255'],
 //            'email' => ['required', 'string', 'email', 'max:255', 'unique:users'],
 //            'password' => ['required', 'string', 'min:8'],
 //        ]);
         $objectCreate = $this->service->create($request);
-        if ($objectCreate instanceof $this->model) {
+        $objectCreate->assignRole($roles);
+        if ($objectCreate instanceof $this->model)
+        {
             return redirect()->route('users');
         }
         return 'Error';
@@ -49,6 +53,7 @@ class UserController extends ParentController
     {
         $user = User::find($id);
         $roles = Role::get();
+
         return view('pages.users.edit', compact('user', 'roles'));
     }
 
@@ -70,6 +75,7 @@ class UserController extends ParentController
         {
             $user->delete();
             return redirect('users')->with('success','deleted');
+
         }
     }
 

@@ -1,3 +1,4 @@
+
 <aside class="main-sidebar sidebar-dark-primary elevation-4">
     <!-- Brand Logo -->
     <a href="#" class="brand-link">
@@ -16,37 +17,26 @@
                 data-accordion="false">
                 <!-- Add icons to the links using the .nav-icon class
                      with font-awesome or any other icon font library -->
-                <li class="nav-item has-treeview menu-close">
-                    <a href="#" class="nav-link">
-                        <i class="nav-icon fas fa-shopping-bag"></i>
+                <li class="nav-item">
+                    <a href='{{ route('dashboard') }}'
+                       class="nav-link  {{ (request()->is('/')) ? 'active' : '' }}">
+                        <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
-                            Products
-                            <i class="right fas fa-angle-left"></i>
+                            Dashboard
                         </p>
                     </a>
-                    <ul class="nav nav-treeview">
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-tshirt nav-icon"></i>
-                                <p>Clothes</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="fas fa-mobile-alt nav-icon"></i>
-                                <p>Phone</p>
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a href="#" class="nav-link">
-                                <i class="far fa-keyboard nav-icon"></i>
-                                <p>Accessory</p>
-                            </a>
-                        </li>
-                    </ul>
                 </li>
+                <li class="nav-item">
+                    <a href='{{ route('face') }}'
+                       class="nav-link  {{ (request()->is('face')) ? 'active' : '' }}">
 
-                <li class="nav-item has-treeview @if(request()->is('users') || request()->is('users/roles')) menu-open @else menu-close @endif">
+                        <i class="nav-icon far fa-grin-tongue-squint"></i>
+                        <p>
+                            Face Recognition
+                        </p>
+                    </a>
+                </li>
+                <li class="nav-item has-treeview @if(request()->is('users') || request()->is('users/create') ||request()->is('users/edit') || request()->is('roles') ||request()->is('roles/create') || request()->is('permissions')) menu-open @else menu-close @endif">
                     <a href="#" class="nav-link">
                         <i class="nav-icon fas fa-users-cog"></i>
                         <p>
@@ -57,7 +47,7 @@
                     <ul class="nav nav-treeview">
                         <li class="nav-item">
                             <a href='{{ route('users') }}'
-                               class="nav-link {{ (request()->is('users')) ? 'active' : '' }}">
+                               class="nav-link {{ (request()->is('users')) || request()->is('users/create')|| request()->is('users/edit')  ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-users"></i>
                                 <p>
                                     Users
@@ -65,7 +55,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href='#' class="nav-link">
+                            <a href='{{ route('roles') }}'
+                               class="nav-link {{ (request()->is('roles')) || request()->is('roles/create')  ? 'active' : '' }}">
                                 <i class="nav-icon fas fa-user-tag"></i>
                                 <p>
                                     Roles
@@ -73,7 +64,8 @@
                             </a>
                         </li>
                         <li class="nav-item">
-                            <a href='#' class="nav-link">
+                            <a href='{{ route('permissions') }}'
+                               class="nav-link  {{ (request()->is('permissions')) ? 'active' : '' }}">
                                 <i class="nav-icon far fa-user"></i>
                                 <p>
                                     Permissions

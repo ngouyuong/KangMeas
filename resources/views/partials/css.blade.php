@@ -9,3 +9,5 @@
 <link href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:300,400,400i,700" rel="stylesheet">
 <!-- Latest compiled and minified CSS -->
 <link rel="stylesheet" href="{{ asset('node_modules/bootstrap-select/dist/css/bootstrap-select.min.css') }}">
+{{--datepicker--}}
+<link  href="{{ asset('node_modules/@chenfengyuan/datepicker/dist/datepicker.css') }}" rel="stylesheet">

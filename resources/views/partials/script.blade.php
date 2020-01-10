@@ -29,4 +29,6 @@
 <script src="{{ asset('node_modules/bootstrap-select/dist/js/bootstrap-select.min.js') }}"></script>
 
 <!-- (Optional) Latest compiled and minified JavaScript translation files -->
-<script src="{{asset('node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js')}}"></script>
+<script src="{{ asset('node_modules/bootstrap-select/dist/js/i18n/defaults-en_US.js')}}"></script>
+{{--datepicker--}}
+<script src="{{ asset('node_modules/@chenfengyuan/datepicker/dist/datepicker.js') }}"></script>
