@@ -22,7 +22,6 @@ class CreateCandidatesTable extends Migration
             $table->string('phone');
             $table->string('candidate_id');
             $table->integer('type_id');
-            $table->string('video_rec');
             $table->timestamps();
         });
     }
