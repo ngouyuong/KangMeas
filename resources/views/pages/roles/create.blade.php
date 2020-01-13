@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title','Roles')
+
 @section('content')
     <form method="POST" action="{{ route('roles.store') }}">
         @csrf

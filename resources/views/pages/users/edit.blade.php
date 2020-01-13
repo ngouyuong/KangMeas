@@ -1,5 +1,7 @@
 @extends('layouts.master')
 
+@section('title','Users')
+
 @section('content')
     <div class="container-fluid">
         <form method="POST" action="{{ route('users.update', $user['id']) }}">
