@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
 
-    <title>ShopLoy9-@yield('title')</title>
+    <title>Admin | @yield('title')</title>
     @include('partials.css')
 </head>
 

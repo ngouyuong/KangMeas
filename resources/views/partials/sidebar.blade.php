@@ -5,7 +5,7 @@
         <img src="{{ asset('img/AdminLTELogo.png') }}" alt="AdminLTE Logo"
              class="brand-image img-circle elevation-3"
              style="opacity: .8">
-        <span class="brand-text font-weight-light">ShopLoy9</span>
+        <span class="brand-text font-weight-light">Admin</span>
     </a>
 
     <!-- Sidebar -->
@@ -23,16 +23,6 @@
                         <i class="nav-icon fas fa-tachometer-alt"></i>
                         <p>
                             Dashboard
-                        </p>
-                    </a>
-                </li>
-                <li class="nav-item">
-                    <a href='{{ route('face') }}'
-                       class="nav-link  {{ (request()->is('face')) ? 'active' : '' }}">
-
-                        <i class="nav-icon far fa-grin-tongue-squint"></i>
-                        <p>
-                            Face Recognition
                         </p>
                     </a>
                 </li>

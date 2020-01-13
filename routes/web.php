@@ -15,7 +15,6 @@ Route::group(['middleware' => 'auth'], function () {
 
     Route::get('/permissions', 'PermissionController@index')->name('permissions');
 
-
     Route::group(['prefix' => 'users'], function () {
         Route::get('', 'UserController@index')->name('users');
         Route::get('profile', 'UserController@profile')->name('users.profile');
@@ -41,11 +40,5 @@ Route::group(['middleware' => 'auth'], function () {
         Route::get('edit/{id}' ,'RoleController@edit')->name('roles.edit');
         Route::put('update/{id}', 'RoleController@update')->name('roles.update');
         Route::delete('delete/{id}', 'RoleController@delete')->name('roles.delete');
-
     });
-    Route::group(['prefix'=>'face'], function () {
-        Route::get('', 'FaceController@index')->name('face');
-        Route::post('store','FaceController@register_candidate')->name('candidate.store');
-    });
-
 });
